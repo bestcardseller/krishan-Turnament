@@ -1,0 +1,782 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishan And Anuj X Tournament</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        :root {
+            --pink: #ff2679;
+            --blue: #20d9ff;
+            --gold: #ffca48;
+            --bg: #080817;
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            background: var(--bg);
+            color: white;
+            font-family: Poppins,sans-serif;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none
+        }
+
+        header {
+            padding: 16px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: #080817ed;
+            border-bottom: 1px solid #ffffff20;
+            backdrop-filter: blur(12px);
+        }
+
+        .logo {
+            font-family: Orbitron;
+            font-weight: 900;
+            font-size: 16px;
+        }
+
+            .logo span {
+                color: var(--pink)
+            }
+
+        nav {
+            display: flex;
+            gap: 17px;
+            flex-wrap: wrap;
+        }
+
+            nav a {
+                color: white;
+                font-size: 12px;
+                transition: .3s;
+            }
+
+                nav a:hover {
+                    color: var(--blue)
+                }
+
+        .music-btn {
+            background: linear-gradient(100deg,#ff2679,#a42bff);
+            color: white;
+            border: 1px solid #ffffff30;
+            border-radius: 30px;
+            padding: 10px 15px;
+            font-size: 11px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 0 15px #ff267955;
+        }
+
+            .music-btn:hover {
+                transform: scale(1.05)
+            }
+
+        .wrap {
+            width: min(1100px,92%);
+            margin: auto;
+        }
+
+        .hero {
+            padding: 85px 10px 55px;
+            text-align: center;
+            background: radial-gradient(ellipse at center,#38205d 0%,#15112d 42%,#080817 76%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 8px 16px;
+            border: 1px solid #ff267977;
+            border-radius: 30px;
+            background: #ff26791c;
+            color: #ff6caa;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-family: Orbitron;
+            font-size: clamp(30px,7vw,66px);
+            line-height: 1.25;
+            margin: 24px 0;
+            text-shadow: 0 0 25px #ff267955;
+        }
+
+            h1 span {
+                background: linear-gradient(90deg,#ff2679,#ffca48,#20d9ff);
+                background-clip: text;
+                color: transparent;
+            }
+
+        .hero p {
+            color: #b9b6d2;
+            font-size: 14px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 21px;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 12px;
+            transition: .25s;
+        }
+
+            .btn:hover {
+                transform: translateY(-4px);
+                filter: brightness(1.2);
+            }
+
+        .primary {
+            background: linear-gradient(100deg,#ff2679,#a42bff);
+            color: white;
+            box-shadow: 0 8px 28px #ff267955;
+        }
+
+        .secondary {
+            border: 1px solid #ffffff40;
+            color: white;
+            background: #ffffff10;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 13px;
+            flex-wrap: wrap;
+            margin-top: 28px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 12px;
+            max-width: 700px;
+            margin: 40px auto 0;
+        }
+
+        .stat {
+            background: #ffffff0d;
+            border: 1px solid #ffffff20;
+            border-radius: 15px;
+            padding: 18px;
+        }
+
+            .stat strong {
+                display: block;
+                font-family: Orbitron;
+                font-size: 23px;
+                color: var(--gold);
+            }
+
+            .stat small {
+                color: #aaa;
+                font-size: 11px;
+            }
+
+        section {
+            padding: 45px 0
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 27px;
+        }
+
+            .heading h2 {
+                font-family: Orbitron;
+                font-size: clamp(21px,4vw,30px);
+            }
+
+            .heading p {
+                font-size: 12px;
+                color: #aaa;
+                margin-top: 8px;
+            }
+
+        .tournament {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 16px;
+        }
+
+        .feature {
+            padding: 28px;
+            border-radius: 20px;
+            background: linear-gradient(130deg,#401340,#191b4d,#102b48);
+            border: 1px solid #ff267955;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .feature h3 {
+                font-family: Orbitron;
+                font-size: 22px;
+                margin: 18px 0;
+            }
+
+            .feature p {
+                color: #ccc;
+                font-size: 13px;
+            }
+
+        .prize {
+            font-family: Orbitron;
+            color: var(--gold);
+            font-size: 40px;
+            margin: 15px 0;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin: 20px 0;
+        }
+
+        .chip {
+            background: #ffffff14;
+            border: 1px solid #ffffff20;
+            padding: 8px 12px;
+            border-radius: 30px;
+            font-size: 11px;
+        }
+
+        .modes {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 10px;
+        }
+
+        .mode {
+            background: linear-gradient(145deg,#1c1c40,#101025);
+            border: 1px solid #ffffff20;
+            border-radius: 16px;
+            text-align: center;
+            padding: 20px 7px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+            .mode span {
+                font-size: 30px
+            }
+
+            .mode b {
+                font-family: Orbitron;
+                color: var(--blue);
+                font-size: 12px;
+                margin: 10px 0;
+            }
+
+            .mode small {
+                color: #aaa;
+                font-size: 10px;
+            }
+
+        .board {
+            overflow-x: auto;
+            border: 1px solid #ffffff20;
+            border-radius: 14px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 400px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ffffff15;
+            font-size: 12px;
+        }
+
+        th {
+            background: #242047;
+            color: var(--blue);
+            font-family: Orbitron;
+        }
+
+        td {
+            color: #ddd
+        }
+
+        .empty {
+            text-align: center;
+            color: #aaa;
+            padding: 30px;
+        }
+
+        .winners {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 13px;
+        }
+
+        .winner {
+            background: linear-gradient(145deg,#25204c,#13132b);
+            border: 1px solid #ffffff20;
+            border-radius: 17px;
+            text-align: center;
+            padding: 25px 8px;
+            transition: .3s;
+        }
+
+            .winner:hover {
+                transform: translateY(-6px);
+                border-color: var(--gold);
+            }
+
+            .winner span {
+                font-size: 36px
+            }
+
+            .winner b {
+                display: block;
+                margin: 12px 0;
+                font-size: 13px;
+            }
+
+            .winner small {
+                color: #aaa
+            }
+
+        .contacts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 13px;
+        }
+
+            .contacts a {
+                padding: 22px;
+                background: #171735;
+                border: 1px solid #ffffff20;
+                border-radius: 14px;
+                color: white;
+                transition: .3s;
+            }
+
+                .contacts a:hover {
+                    border-color: var(--blue);
+                    transform: translateY(-4px);
+                }
+
+            .contacts small {
+                display: block;
+                color: #aaa;
+                margin-top: 6px;
+            }
+
+        .contact-button {
+            display: block;
+            margin-top: 15px;
+            color: var(--blue);
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        footer {
+            text-align: center;
+            border-top: 1px solid #ffffff15;
+            padding: 25px;
+            color: #888;
+            font-size: 11px;
+        }
+
+        @media(max-width:650px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                gap: 13px
+            }
+
+            .hero {
+                padding-top: 60px
+            }
+
+            .tournament {
+                grid-template-columns: 1fr
+            }
+
+            .stats {
+                gap: 7px
+            }
+
+            .stat {
+                padding: 13px 5px
+            }
+
+                .stat strong {
+                    font-size: 17px
+                }
+
+            .winners {
+                gap: 7px
+            }
+
+            .winner {
+                padding: 17px 5px
+            }
+
+                .winner b {
+                    font-size: 11px
+                }
+
+            .contacts {
+                grid-template-columns: 1fr
+            }
+
+            .modes {
+                gap: 7px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- BACKGROUND MUSIC -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="AURA.mpeg" type="audio/mpeg">
+    </audio>
+
+    <header>
+
+        <div class="logo">KRISHAN <span>×</span> ANUJ</div>
+
+        <nav>
+            <a href="#home">HOME</a>
+            <a href="#tournament">TOURNAMENT</a>
+            <a href="#leaderboard">LEADERBOARD</a>
+            <a href="#winners">WINNERS</a>
+            <a href="#contact">CONTACT</a>
+        </nav>
+
+        <button class="music-btn" id="musicBtn" onclick="toggleMusic()">
+            🔇 MUSIC OFF
+        </button>
+
+    </header>
+
+    <!-- HOME -->
+    <div class="hero" id="home">
+
+        <div class="tag">⚡ OFFICIAL GAMING ARENA ⚡</div>
+
+        <h1>
+            KRISHAN AND ANUJ<br>
+            <span>X TOURNAMENT</span>
+        </h1>
+
+        <p>
+            Enter the battlefield. Show your skills.
+            Fight for glory. Become the ultimate champion!
+        </p>
+
+        <div class="actions">
+
+            <a class="btn primary"
+               href="https://t.me/zxanuj"
+               target="_blank"
+               rel="noopener">
+                REGISTER WITH ANUJ ↗
+            </a>
+
+            <a class="btn primary"
+               href="https://t.me/ZxKrishan"
+               target="_blank"
+               rel="noopener">
+                REGISTER WITH KRISHAN ↗
+            </a>
+
+        </div>
+
+        <div class="stats">
+
+            <div class="stat">
+                <strong>₹20</strong>
+                <small>ENTRY FEES</small>
+            </div>
+
+            <div class="stat">
+                <strong>3</strong>
+                <small>GAME MODES</small>
+            </div>
+
+            <div class="stat">
+                <strong>∞</strong>
+                <small>GAMING SPIRIT</small>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="wrap">
+
+        <!-- TOURNAMENT -->
+        <section id="tournament">
+
+            <div class="heading">
+                <h2>🔥 NEXT BATTLE</h2>
+                <p>Your next victory starts here</p>
+            </div>
+
+            <div class="tournament">
+
+                <div class="feature">
+
+                    <div class="tag">UPCOMING EVENT</div>
+
+                    <h3>BOOYAH BATTLE ARENA</h3>
+
+                    <p>
+                        Join the battlefield and compete with
+                        the best players.
+                    </p>
+
+                    <div class="prize">₹320</div>
+
+                    <small>WINNING PRIZE POOL</small>
+
+                    <div class="chips">
+                        <div class="chip">🎮 FREE FIRE MAX</div>
+                        <div class="chip">🏆 CUSTOM ROOM</div>
+                        <div class="chip">⚡ ALL SKILL LEVELS</div>
+                    </div>
+
+                    <div class="actions">
+
+                        <a class="btn primary"
+                           href="https://t.me/zxanuj"
+                           target="_blank">
+                            JOIN WITH ANUJ
+                        </a>
+
+                        <a class="btn primary"
+                           href="https://t.me/ZxKrishan"
+                           target="_blank">
+                            JOIN WITH KRISHAN
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="modes">
+
+                    <div class="mode">
+                        <span>👤</span>
+                        <b>SOLO</b>
+                        <small>1 PLAYER</small>
+                    </div>
+
+                    <div class="mode">
+                        <span>👥</span>
+                        <b>DUO</b>
+                        <small>2 PLAYERS</small>
+                    </div>
+
+                    <div class="mode">
+                        <span>👑</span>
+                        <b>SQUAD</b>
+                        <small>4 PLAYERS</small>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- LEADERBOARD -->
+        <section id="leaderboard">
+
+            <div class="heading">
+                <h2>🏆 LEADERBOARD</h2>
+                <p>Top fighters of the arena</p>
+            </div>
+
+            <div class="board">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>RANK</th>
+                            <th>PLAYER / TEAM</th>
+                            <th>POINTS</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td class="empty" colspan="3">
+                                🏆 Tournament scores will be announced here!
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+        </section>
+
+        <!-- WINNERS -->
+        <section id="winners">
+
+            <div class="heading">
+                <h2>👑 HALL OF FAME</h2>
+                <p>Legends never die</p>
+            </div>
+
+            <div class="winners">
+
+                <div class="winner">
+                    <span>🏆</span>
+                    <b>CHAMPION</b>
+                    <small>Coming Soon</small>
+                </div>
+
+                <div class="winner">
+                    <span>🥈</span>
+                    <b>RUNNER UP</b>
+                    <small>Coming Soon</small>
+                </div>
+
+                <div class="winner">
+                    <span>🥉</span>
+                    <b>2ND RUNNER UP</b>
+                    <small>Coming Soon</small>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+
+            <div class="heading">
+                <h2>📡 CONTACT ORGANIZERS</h2>
+                <p>Connect with our tournament team</p>
+            </div>
+
+            <div class="contacts">
+
+                <a href="https://t.me/zxanuj"
+                   target="_blank"
+                   rel="noopener">
+
+                    <b>👨‍💻 ANUJ</b>
+
+                    <small>@zxanuj · Telegram</small>
+
+                    <span class="contact-button">
+                        CHAT WITH ANUJ ↗
+                    </span>
+
+                </a>
+
+                <a href="https://t.me/ZxKrishan"
+                   target="_blank"
+                   rel="noopener">
+
+                    <b>🎮 KRISHAN</b>
+
+                    <small>@ZxKrishan · Telegram</small>
+
+                    <span class="contact-button">
+                        CHAT WITH KRISHAN ↗
+                    </span>
+
+                </a>
+
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        © 2026 KRISHAN AND ANUJ X TOURNAMENT
+        <br><br>
+        POWERED BY GAMING PASSION 🔥
+    </footer>
+
+    <script>
+const music = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+
+let isPlaying = false;
+
+async function toggleMusic(){
+
+ if(!isPlaying){
+
+  try{
+
+   await music.play();
+
+   isPlaying = true;
+
+   musicBtn.innerHTML = "🔊 MUSIC ON";
+
+  }catch(error){
+
+   isPlaying = false;
+
+   musicBtn.innerHTML = "🔇 MUSIC OFF";
+
+   alert("Music file nahi mil rahi. Check karo AURA.mpeg same folder mein hai ya nahi.");
+
+  }
+
+ }else{
+
+  music.pause();
+
+  isPlaying = false;
+
+  musicBtn.innerHTML = "🔇 MUSIC OFF";
+
+ }
+
+}
+
+// Agar song khud khatam ho, loop usko dobara chalayega.
+music.addEventListener("error",function(){
+ isPlaying=false;
+ musicBtn.innerHTML="🔇 MUSIC OFF";
+});
+
+    </script>
+
+</body>
+</html>
